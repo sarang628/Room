@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.room.InputViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".InputFragment">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="사용자 id"
+            android:text="@={vm.userId}"
+            android:inputType="number" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={vm.userName}"
+            android:hint="사용자명" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="프로필 이미지"
+            android:text="@={vm.profilePicUri}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리뷰 이미지" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={vm.likeCount}"
+            android:hint="좋아요 갯수"
+            android:inputType="number" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={vm.restaurantName}"
+            android:hint="식당 상호" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={vm.review}"
+            android:hint="평가글" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rating="@={vm.rating}"
+            android:hint="식당 상호" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="@{vm.userId != null &amp;&amp; vm.userName != null &amp;&amp; vm.likeCount != null &amp;&amp; vm.restaurantName != null &amp;&amp; vm.review != null &amp;&amp; vm.rating != null}"
+            android:text="입력" />
+
+    </LinearLayout>
+</layout>

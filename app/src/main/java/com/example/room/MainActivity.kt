@@ -2,15 +2,19 @@ package com.example.room
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.room.Room
+import com.example.room.databinding.ActivityMainBinding
 import com.example.room.room.AppDatabase
-import com.example.room.room.User
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.vp.adapter = MainPagerAdapter(supportFragmentManager, 0)
+
+        binding.tabLayout.setupWithViewPager(binding.vp)
 
         val db = Room.databaseBuilder(
                 applicationContext,
