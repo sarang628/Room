@@ -18,6 +18,13 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:hint="feed id"
+            android:inputType="number"
+            android:text="@={vm.feedId}" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:hint="사용자 id"
             android:inputType="number"
             android:text="@={vm.userId}" />
@@ -67,7 +74,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:enabled="@{vm.userId != null &amp;&amp; vm.userName != null &amp;&amp; vm.likeCount != null &amp;&amp; vm.restaurantName != null &amp;&amp; vm.review != null &amp;&amp; vm.rating != null}"
+            android:enabled="@{vm.feedId != null &amp;&amp; vm.userId != null &amp;&amp; vm.userName != null &amp;&amp; vm.likeCount != null &amp;&amp; vm.restaurantName != null &amp;&amp; vm.review != null &amp;&amp; vm.rating != null}"
             android:onClick="@{()->vm.saveFeed()}"
             android:text="입력" />
 

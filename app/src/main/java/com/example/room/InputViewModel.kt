@@ -9,6 +9,7 @@ import com.example.room.room.Feed
 import kotlinx.coroutines.launch
 
 class InputViewModel constructor(val feedRepository: FeedRepository) : ViewModel() {
+    val feedId = MutableLiveData<String?>()
     val userId = MutableLiveData<String?>()
     val userName = MutableLiveData<String?>()
     val profilePicUri = MutableLiveData<String?>()
@@ -21,6 +22,7 @@ class InputViewModel constructor(val feedRepository: FeedRepository) : ViewModel
     fun saveFeed() {
         viewModelScope.launch {
             var feed = Feed()
+            feed.review_id = feedId.value.toString().toInt()
             feed.userName = userName.value
             feed.restaurantName = restaurantName.value
             feedRepository.saveFeed(feed)
