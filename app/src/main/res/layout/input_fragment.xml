@@ -19,14 +19,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="사용자 id"
-            android:text="@={vm.userId}"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="@={vm.userId}" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@={vm.userName}"
-            android:hint="사용자명" />
+            android:hint="사용자명"
+            android:text="@={vm.userName}" />
 
         <Button
             android:layout_width="wrap_content"
@@ -42,32 +42,33 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@={vm.likeCount}"
             android:hint="좋아요 갯수"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="@={vm.likeCount}" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@={vm.restaurantName}"
-            android:hint="식당 상호" />
+            android:hint="식당 상호"
+            android:text="@={vm.restaurantName}" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@={vm.review}"
-            android:hint="평가글" />
+            android:hint="평가글"
+            android:text="@={vm.review}" />
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:rating="@={vm.rating}"
-            android:hint="식당 상호" />
+            android:hint="식당 상호"
+            android:rating="@={vm.rating}" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="@{vm.userId != null &amp;&amp; vm.userName != null &amp;&amp; vm.likeCount != null &amp;&amp; vm.restaurantName != null &amp;&amp; vm.review != null &amp;&amp; vm.rating != null}"
+            android:onClick="@{()->vm.saveFeed()}"
             android:text="입력" />
 
     </LinearLayout>

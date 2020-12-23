@@ -15,7 +15,7 @@ interface UserDao {
     fun findByName(first: String, last: String): Feed*/
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg feeds: Feed)
+    suspend fun insertAll(vararg feeds: Feed)
 
     @Delete
     fun delete(user: Feed)

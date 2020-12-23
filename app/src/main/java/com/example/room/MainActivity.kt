@@ -16,11 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.tabLayout.setupWithViewPager(binding.vp)
 
-        val db = Room.databaseBuilder(
-                applicationContext,
-                AppDatabase::class.java, "database-name"
-        ).build()
-
         Thread(Runnable {
 //            db.userDao().insertAll(User(1,"사랑", "양"))
 //            db.userDao().insertAll(User(2,"a", "b"))

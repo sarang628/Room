@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.room.databinding.InputFragmentBinding
+import com.example.room.repository.DatabaseProvider
+import com.example.room.repository.ViewModelFactory
 
 class InputFragment : Fragment() {
 
@@ -32,7 +34,8 @@ class InputFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(InputViewModel::class.java)
+        val viewModelFactory = ViewModelFactory(DatabaseProvider.getInstance(context!!))
+        viewModel = ViewModelProvider(this, viewModelFactory).get(InputViewModel::class.java)
         mBinding.vm = viewModel
     }
 

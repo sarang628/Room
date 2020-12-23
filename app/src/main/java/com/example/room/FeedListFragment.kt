@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.room.databinding.FeedListFragmentBinding
+import com.example.room.repository.DatabaseProvider
+import com.example.room.repository.ViewModelFactory
 
 class FeedListFragment : Fragment() {
     companion object {
@@ -14,7 +16,7 @@ class FeedListFragment : Fragment() {
     }
 
     private lateinit var viewModel: FeedListViewModel
-    private lateinit var mBinding : FeedListFragmentBinding
+    private lateinit var mBinding: FeedListFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +32,8 @@ class FeedListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FeedListViewModel::class.java)
+        val viewModelFactory = ViewModelFactory(DatabaseProvider.getInstance(context!!))
+        viewModel = ViewModelProvider(this, viewModelFactory).get(FeedListViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
