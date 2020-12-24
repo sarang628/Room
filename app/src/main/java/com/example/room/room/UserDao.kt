@@ -1,11 +1,12 @@
 package com.example.room.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface UserDao {
     @Query("SELECT * FROM Feed")
-    fun getAll(): List<Feed>
+    fun getAll(): LiveData<List<Feed>>
 
     /*@Query("SELECT * FROM Feed WHERE uid IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<Feed>*/

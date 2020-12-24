@@ -15,7 +15,7 @@ class MainPagerAdapter(fragmentManager: FragmentManager, a: Int) :
             return InputFragment.newInstance()
         }
         else{
-            return InputFragment.newInstance()
+            return FeedListFragment.newInstance()
         }
     }
 
