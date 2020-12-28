@@ -2,8 +2,8 @@ package com.example.room.repository
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.room.FeedListViewModel
-import com.example.room.InputViewModel
+import com.example.room.ui.feedlist.FeedListViewModel
+import com.example.room.ui.feedinput.InputViewModel
 import com.example.room.room.AppDatabase
 
 class ViewModelFactory constructor(val appDatabase: AppDatabase) : ViewModelProvider.Factory {

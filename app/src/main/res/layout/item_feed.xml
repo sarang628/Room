@@ -8,11 +8,16 @@
         <variable
             name="feed"
             type="com.example.room.room.Feed" />
+
+        <variable
+            name="vm"
+            type="com.example.room.ui.feedlist.FeedListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{()->vm.selectFeed(feed)}">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

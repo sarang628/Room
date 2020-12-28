@@ -19,5 +19,5 @@ interface UserDao {
     suspend fun insertAll(vararg feeds: Feed)
 
     @Delete
-    fun delete(user: Feed)
+    suspend fun delete(user: Feed)
 }

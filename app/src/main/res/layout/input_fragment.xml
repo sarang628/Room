@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="vm"
-            type="com.example.room.InputViewModel" />
+            type="com.example.room.ui.feedinput.InputViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,70 +13,153 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".InputFragment">
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="feed id"
-            android:inputType="number"
-            android:text="@={vm.feedId}" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="사용자 id"
-            android:inputType="number"
-            android:text="@={vm.userId}" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="사용자명"
-            android:text="@={vm.userName}" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="프로필 이미지"
-            android:text="@={vm.profilePicUri}" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="리뷰 이미지" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="좋아요 갯수"
-            android:inputType="number"
-            android:text="@={vm.likeCount}" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="식당 상호"
-            android:text="@={vm.restaurantName}" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="평가글"
-            android:text="@={vm.review}" />
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        tools:context=".ui.feedinput.InputFragment">
 
         <RatingBar
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="식당 상호"
-            android:rating="@={vm.rating}" />
+            android:rating="@={vm.rating}"
+            android:visibility="gone" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:endIconContentDescription="endIconContentDescription"
+            app:endIconMode="clear_text"
+            app:startIconContentDescription="startIconContentDescription">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="feed id"
+                android:inputType="number"
+                android:text="@={vm.feedId}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="사용자 id"
+                android:inputType="number"
+                android:text="@={vm.userId}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="사용자명"
+                android:text="@={vm.userName}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="좋아요 갯수"
+                android:inputType="number"
+                android:text="@={vm.likeCount}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="식당 상호"
+                android:text="@={vm.restaurantName}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="평가글"
+                android:text="@={vm.review}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center_vertical" />
+
+            <Button
+                android:id="@+id/btn_find_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:hint="프로필 이미지"
+                android:text="@={vm.profilePicUri}"
+                android:textColorHint="#FFFFFF" />
+
+        </LinearLayout>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="@{vm.feedId != null &amp;&amp; vm.userId != null &amp;&amp; vm.userName != null &amp;&amp; vm.likeCount != null &amp;&amp; vm.restaurantName != null &amp;&amp; vm.review != null &amp;&amp; vm.rating != null}"
-            android:onClick="@{()->vm.saveFeed()}"
-            android:text="입력" />
+            android:layout_marginTop="5dp"
+            android:text="리뷰 이미지" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="@{vm.feedId != null &amp;&amp; vm.userId != null &amp;&amp; vm.userName != null &amp;&amp; vm.likeCount != null &amp;&amp; vm.restaurantName != null &amp;&amp; vm.review != null &amp;&amp; vm.rating != null}"
+                android:onClick="@{()->vm.saveFeed()}"
+                android:text="입력" />
+
+            <Button
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:enabled="@{vm.feedId != null}"
+                android:onClick="@{()->vm.deleteFeed()}"
+                android:text="삭제" />
+        </LinearLayout>
+
 
     </LinearLayout>
 </layout>

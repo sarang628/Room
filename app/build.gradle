@@ -36,6 +36,12 @@ android {
     buildFeatures.dataBinding true
 }
 
+repositories {
+    flatDir{
+        dirs 'libs'
+    }
+}
+
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -61,4 +67,6 @@ dependencies {
 
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
+
+    implementation name: 'ImagePciker-release', ext: 'aar'
 }
