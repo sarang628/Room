@@ -40,8 +40,13 @@ class InputFragment : Fragment() , OnFeedClickListener {
         mBinding.lifecycleOwner = viewLifecycleOwner
 
         mBinding.btnFindProfile.setOnClickListener {
+            //이미지 선택 요청
             imagePicker.actionOpenDocument(this){
+                //이미지 선택 결과
                 mBinding.ivProfile.setImageBitmap(it)
+            }
+            imagePicker.setOnReceiveUriListener {
+                mBinding.tvProfileUri.text = it.toString()
             }
         }
     }
@@ -55,6 +60,7 @@ class InputFragment : Fragment() , OnFeedClickListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        // 이미지 선택 변환처리
         data?.let { imagePicker.onActivityResult(requestCode, resultCode, it, context!!) }
     }
 

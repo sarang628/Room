@@ -18,6 +18,7 @@ data class Feed(
     var restaurantName: String? = null,
     var contents: String? = null,
     var create_date: String? = null,
-    var rating: Float? = 3f
+    var rating: Float? = 3f,
+    var profilePicUri: String? = null
 //    var like: Like? = null
 )

@@ -18,16 +18,17 @@
         tools:context=".ui.feedinput.InputFragment">
 
         <RatingBar
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
             android:hint="식당 상호"
             android:rating="@={vm.rating}"
-            android:visibility="gone" />
+            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             app:endIconContentDescription="endIconContentDescription"
             app:endIconMode="clear_text"
             app:startIconContentDescription="startIconContentDescription">
@@ -108,16 +109,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
             <ImageView
                 android:id="@+id/iv_profile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/ic_launcher"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_launcher" />
 
             <Button
                 android:id="@+id/btn_find_profile"
@@ -125,10 +126,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:hint="프로필 이미지"
-                android:text="@={vm.profilePicUri}"
                 android:textColorHint="#FFFFFF" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_profile_uri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={vm.profilePicUri}" />
 
         <Button
             android:layout_width="match_parent"

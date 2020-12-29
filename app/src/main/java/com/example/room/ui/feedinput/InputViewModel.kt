@@ -35,6 +35,7 @@ class InputViewModel constructor(val feedRepository: FeedRepository) : ViewModel
             feed.restaurantName = restaurantName.value
             feed.rating = rating.value
             feed.contents = review.value
+            feed.profilePicUri = profilePicUri.value
             feedRepository.saveFeed(feed)
         }
     }
@@ -55,6 +56,7 @@ class InputViewModel constructor(val feedRepository: FeedRepository) : ViewModel
         rating.value = feed.rating
         restaurantName.value = feed.restaurantName
         review.value = feed.contents
+        profilePicUri.value = feed.profilePicUri
 
     }
 }
